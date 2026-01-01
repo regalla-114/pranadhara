@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blood Donor Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200 p-6">
+
+  <div class="max-w-7xl px-6 mx-auto">
+
+    <div class="flex justify-between bg-white px-4 rounded items-center mb-0">
+  <div class="flex items-center gap-3">
+    <img src="logo.png" alt="Blood Donor Logo"
+     class="w-20 h-20 md:w-[150px] md:h-[90px] object-contain">
+    <h1 class="text-4xl font-bold text-red-600">
+      Jivadhara
+    </h1>
+  </div>
+
+  <a href="register.html"
+     class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+    Register
+  </a>
+</div>
+<div class="bg-red-600 text-white text-center p-4 rounded mb-6">
+  <p class="text-lg font-semibold">
+     Strong minds donate knowledge, strong hearts donate blood
+  </p>
+</div>
+
+
+
+    <!-- Filters -->
+    <div class="bg-white p-4 rounded shadow mb-4 flex flex-wrap gap-4">
+
+      <select id="searchType" onchange="showSearchField()" class="border p-2 rounded">
+        <option value="">Search By</option>
+        <option value="name">Name</option>
+        <option value="blood">Blood Group</option>
+        <option value="branch">Branch</option>
+        <option value="course">Course</option>
+      </select>
+
+      <input id="searchInput" oninput="applyFilters()" 
+        class="border p-2 rounded hidden" placeholder="Enter value">
+
+      <select id="genderFilter" onchange="applyFilters()" class="border p-2 rounded">
+        <option value="">All Genders</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <button id="eligibilityBtn" class="bg-red-600 text-white px-4 py-2 rounded">
+  Apply Eligibility
+</button>
+
+
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto bg-white rounded shadow">
+  <table class="min-w-full table-fixed border-collapse">
+    <thead class="bg-red-600 text-white">
+      <tr>
+        <th class="w-1/6 p-3 text-left">Name</th>
+        <th class="w-1/12 p-3 text-left">Blood</th>
+        <th class="w-1/12 p-3 text-left">Gender</th>
+        <th class="w-1/6 p-3 text-left">Branch</th>
+        <th class="w-1/6 p-3 text-left">Course</th>
+        <th class="w-1/6 p-3 text-left">Last Donation</th>
+        <th class="w-1/6 p-3 text-left">Action</th>
+
+      </tr>
+    </thead>
+
+    <tbody id="tableBody" class="divide-y"></tbody>
+  </table>
+</div>
+
+
+    <div class="flex justify-between items-center mt-4">
+  <div>
+    <button id="prevPageBtn" class="bg-red-600 text-white px-4 py-2 rounded disabled:bg-gray-400 mr-2">
+      Previous
+    </button>
+    <button id="nextPageBtn" class="bg-red-600 text-white px-4 py-2 rounded disabled:bg-gray-400">
+      Next
+    </button>
+  </div>
+  <span id="paginationInfo" class="text-gray-700"></span>
+</div>
+
+</div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
